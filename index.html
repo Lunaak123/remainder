@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Notes + Reminders</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Notes + Reminders</h1>
+      <div class="controls">
+        <input id="search" placeholder="Search notes..." />
+        <button id="btn-new">New Note</button>
+        <button id="btn-export">Export</button>
+        <input id="import-file" type="file" accept="application/json" style="display:none" />
+        <button id="btn-import">Import</button>
+        <button id="btn-notif-request">Enable Notifications</button>
+      </div>
+    </header>
+
+    <main>
+      <aside class="sidebar">
+        <h3>Notes</h3>
+        <div id="notes-list" class="notes-list"></div>
+      </aside>
+
+      <section class="editor">
+        <form id="note-form">
+          <input id="note-id" type="hidden" />
+          <div class="row">
+            <input id="note-title" placeholder="Title" required />
+            <label class="pin-label"><input id="note-pin" type="checkbox" /> Pin</label>
+          </div>
+
+          <textarea id="note-body" placeholder="Your note..." rows="10"></textarea>
+
+          <div class="row">
+            <label>
+              Reminder:
+              <input id="note-reminder" type="datetime-local" />
+            </label>
+
+            <div class="form-actions">
+              <button id="btn-save" type="submit">Save</button>
+              <button id="btn-cancel" type="button">Clear</button>
+              <button id="btn-delete" type="button" class="danger">Delete</button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <small>Notes stored locally in your browser. Reminders will only fire when this page (or another tab with it) is open.</small>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
